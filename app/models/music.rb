@@ -1,5 +1,6 @@
 class Music < ApplicationRecord
-    belongs_to :artist
+    has_and_belongs_to_many :playlist
+
   
     validates :title, presence: true
     validates :genre, presence: true

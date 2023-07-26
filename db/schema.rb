@@ -10,6 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_064108) do
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musics", force: :cascade do |t|
+    t.string "title"
+    t.string "avatar"
+    t.string "genre"
+    t.string "album"
+    t.string "video"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
 ActiveRecord::Schema[7.0].define(version: 2023_07_26_064247) do
   create_table "recommendations", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064247) do
   add_foreign_key "search_histories", "users"
 
 ActiveRecord::Schema[7.0].define(version: 2023_07_25_111323) do
+
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -39,26 +59,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_111323) do
     t.integer "user_id"
   end
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_170205) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
     t.string "token"
-  end
-  create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.string "about"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "musics", force: :cascade do |t|
-    t.string "title"
-    t.string "avatar"
-    t.string "genre"
-    t.string "album"
-    t.string "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
