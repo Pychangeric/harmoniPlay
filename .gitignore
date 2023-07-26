@@ -6,6 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+/.gemfile
+/.ruby version
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
