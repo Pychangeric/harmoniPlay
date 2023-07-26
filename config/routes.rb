@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  post '/users/:user_id/search', to: 'search_histories#search'
+  get '/users/:user_id/recommendations', to: 'recommendations#recommend'
   resources :playlists, only: [:create, :index, :show, :destory]
   resources :users
   resources :music, only: [:index, :show, :create]
@@ -18,3 +21,4 @@ Rails.application.routes.draw do
 
 
 end
+
