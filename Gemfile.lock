@@ -113,6 +113,11 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e85df82912e506effdf4a6f579f8231ce7b7327e
     jsonapi-renderer (0.2.2)
     jwt (2.7.1)
     loofah (2.21.3)
@@ -234,8 +239,15 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+<<<<<<< HEAD
   active_model_serializers
   bcrypt
+=======
+
+  active_model_serializers
+  bcrypt
+
+>>>>>>> e85df82912e506effdf4a6f579f8231ce7b7327e
   bootsnap
   capybara
   debug
@@ -254,5 +266,15 @@ DEPENDENCIES
   web-console
   webdrivers
 
+<<<<<<< HEAD
+=======
+
+
+RUBY VERSION
+   ruby 3.0.2
+
+
+
+>>>>>>> e85df82912e506effdf4a6f579f8231ce7b7327e
 BUNDLED WITH
    2.4.14
