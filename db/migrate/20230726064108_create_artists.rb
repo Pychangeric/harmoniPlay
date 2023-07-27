@@ -4,6 +4,11 @@ class CreateArtists < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :about
 
+
+      t.references :music, foreign_key: true
+      t.references :playlists, foreign_key: true
+
+
       t.timestamps
     end
   end
