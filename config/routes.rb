@@ -1,6 +1,6 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  resources :shares
+  resources :shares:
   
   get './shares', to 'shares#index'
   resources :playlists, only: [:create, :index, :show, :destroy]
