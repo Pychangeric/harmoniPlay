@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/search', to: 'search_histories#search'
   get '/users/:user_id/recommendations', to: 'recommendations#recommend'
-  resources :playlists, only: [:create, :index, :show, :destory]
   resources :users
   resources :music, only: [:index, :show, :create]
   resources :artists
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
 
 
 end
