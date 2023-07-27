@@ -7,6 +7,14 @@ class CreateMusics < ActiveRecord::Migration[7.0]
       t.string :album
       t.string :video
 
+
+      t.references :playlists, foreign_key: true
+      t.references :users, foreign_key: true
+      t.references :artist, foreign_key: true
+
+
+
+
       t.timestamps
     end
   end
