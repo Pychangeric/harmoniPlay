@@ -59,3 +59,4 @@ class SharesController < ApplicationController
       params.require(:share).permit(:user_id, :platform, :share_url)
     end
 end
+
