@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :playlists, only: [:create, :index, :show, :destory]
+  resources :playlists, only: [:create, :index, :show, :destroy]
   resources :users
   post 'signup', to: 'users#create'
   post 'login', to: 'sessions#create'
