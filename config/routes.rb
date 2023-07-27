@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 <<<<<<< HEAD
   get '/musics', to: 'music#index'
 end
-=======
+
 
 end
 
