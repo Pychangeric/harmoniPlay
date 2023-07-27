@@ -10,6 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
+  create_table "shares", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "platform"
+    t.string "share_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shares_on_user_id"
+  end
+
+  add_foreign_key "shares", "users"
+  
 ActiveRecord::Schema[7.0].define(version: 2023_07_26_064108) do
   create_table "artists", force: :cascade do |t|
     t.string "name"

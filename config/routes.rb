@@ -1,4 +1,8 @@
+# config/routes.rb
 Rails.application.routes.draw do
+  resources :shares
+  
+  get './shares', to 'shares#index'
   resources :playlists, only: [:create, :index, :show, :destroy]
 
   post '/users/:user_id/search', to: 'search_histories#search'
@@ -20,7 +24,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 end
-
 
 
 
