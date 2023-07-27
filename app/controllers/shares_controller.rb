@@ -4,10 +4,12 @@ class SharesController < ApplicationController
   # GET /shares or /shares.json
   def index
     @shares = Share.all
+    render json: @shares
   end
 
   # GET /shares/1 or /shares/1.json
   def show
+  
   end
 
   # GET /shares/new
