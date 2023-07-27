@@ -9,9 +9,9 @@
 # db/seeds.rb
 
 # Create some shares
-Share.create(platform: 'Twitter', share_url: 'https://twitter.com/song1')
-Share.create(platform: 'Facebook', share_url: 'https://facebook.com/song1')
-Share.create(platform: 'WhatsApp', share_url: 'https://whatsapp.com/song2')
+Share.create(platform: 'Twitter', share_url: 'https://twitter.com/')
+Share.create(platform: 'Facebook', share_url: 'https://facebook.com/')
+Share.create(platform: 'WhatsApp', share_url: 'https://whatsapp.com/')
 
 
 music = Music.create(
