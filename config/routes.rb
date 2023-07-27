@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/search', to: 'search_histories#search'
   get '/users/:user_id/recommendations', to: 'recommendations#recommend'
-  resources :playlists, only: [:create, :index, :show, :destory]
   resources :users
   resources :music, only: [:index, :show, :create]
   resources :artists
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   get '/musics', to: 'music#index'
 end
 =======
@@ -28,3 +28,9 @@ end
 end
 
 >>>>>>> c85fe9fbda8a725b7cba187dc58a99ab84920b23
+=======
+
+
+end
+
+>>>>>>> 9c210b4d131143583401ca1f8ca0ff018638bb82
