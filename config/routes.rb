@@ -10,5 +10,4 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/musics', to: 'music#index'
-
 end
