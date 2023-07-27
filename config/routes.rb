@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :playlists, only: [:create, :index, :show, :destroy]
 
   post '/users/:user_id/search', to: 'search_histories#search'
   get '/users/:user_id/recommendations', to: 'recommendations#recommend'
