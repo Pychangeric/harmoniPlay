@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # db/seeds.rb
-# Create some user)
+
 # Create some shares
-Share.create(platform: 'Twitter', share_url: 'https://twitter.com/song1', user: user1, song: song1)
-Share.create(platform: 'Facebook', share_url: 'https://facebook.com/song1', user: user1, song: song1)
-Share.create(platform: 'WhatsApp', share_url: 'https://whatsapp.com/song2', user: user2, song: song2)
+Share.create(platform: 'Twitter', share_url: 'https://twitter.com/song1')
+Share.create(platform: 'Facebook', share_url: 'https://facebook.com/song1')
+Share.create(platform: 'WhatsApp', share_url: 'https://whatsapp.com/song2')
 
 
 music = Music.create(
