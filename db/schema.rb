@@ -28,9 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.string "genre"
     t.string "album"
     t.string "video"
-    t.integer "playlists_id"
-    t.integer "users_id"
-    t.integer "artist_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_musics_on_artist_id"
@@ -44,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.binary "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -79,11 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "artists", "musics"
-  add_foreign_key "artists", "playlists", column: "playlists_id"
-  add_foreign_key "musics", "artists"
-  add_foreign_key "musics", "playlists", column: "playlists_id"
-  add_foreign_key "musics", "users", column: "users_id"
+
   add_foreign_key "recommendations", "users"
   add_foreign_key "search_histories", "users"
   add_foreign_key "shares", "users"
