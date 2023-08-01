@@ -1,42 +1,32 @@
-class ArtistController < ApplicationController
-    def index
-      artists = Artist.all
-      render json: artists
-    end
-  
-    def show
-      artist = Artist.find(params[:id])
-      render json: artist
-    end
-  
-    def create
-      artist = Artist.new(artist_params)
-      if artist.save
-        render json: artist, status: :created
-      else
-        render json: { error: artist.errors.full_messages.join(', ') }, status: :unprocessable_entity
-      end
-    end
-  
-    def update
-      artist = Artist.find(params[:id])
-      if artist.update(artist_params)
-        render json: artist
-      else
-        render json: { error: artist.errors.full_messages.join(', ') }, status: :unprocessable_entity
-      end
-    end
-  
-    def destroy
-      artist = Artist.find(params[:id])
-      artist.destroy
-      head :no_content
-    end
-  
-    private
-  
-    def artist_params
-      params.require(:artist).permit(:name, :genre, :biography)
+# app/controllers/shares_controller.rb
+class SharesController < ApplicationController
+  def index
+    shares = Share.all
+    render json: shares
+  end
+
+  def show
+    share = Share.find_by(title: params[:title])
+    if share
+      render json: share
+    else
+      render json: { error: "Share not found" }
     end
   end
-  
+
+  def create
+    share = Share.new(share_params)
+
+    if share.save
+      render json: share, status: :created
+    else
+      render json: { errors: share.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def share_params
+    params.require(:share).permit(:user_id, :platform, :share_url)
+  end
+end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get './shares', to: 'shares#index'
   resources :playlists, only: [:create, :index, :show, :destroy]
-  resources :shares, only: [:create]
+  resources :shares, only: [:index, :show, :create]
 
   post '/users/:user_id/search', to: 'search_histories#search'
   get '/users/:user_id/recommendations', to: 'recommendations#recommend'
