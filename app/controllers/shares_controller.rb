@@ -1,32 +1,53 @@
 class SharesController < ApplicationController
-  def index 
+  before_action :set_share, only: [:show, :update, :destroy]
+
+  
+  def index
     shares = Share.all
     render json: shares
   end
 
-  def show 
-    share = Share.find_by(title: params[:title])
-    if share
-      render json: share
-    else 
-      render json: { error: "Share not found" }
+  
+  def show
+    render json: @share
+  end
+
+  
+  def create
+    share = Share.new(share_params)
+
+    if share.save
+      render json: share, status: :created
+    else
+      render json: { errors: share.errors }, status: :unprocessable_entity
     end
   end
 
-  def create 
-    share = Share.create(share_params)
-
-    if share.persisted?
-      render json: share, status: :created
+  
+  def update
+    if @share.update(share_params)
+      render json: @share
     else
-      render json: { error: share.errors.full_messages.join(", ") }, status: :unprocessable_entity
+      render json: { errors: @share.errors }, status: :unprocessable_entity
     end
+  end
+
+
+  def destroy
+    @share.destroy
+    head :no_content
   end
 
   private
 
+  def set_share
+    @share = Share.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Share not found' }, status: :not_found
+  end
+
   def share_params
-    params.require(:share).permit(:user_id, :platform, :share_url)
+    params.require(:share).permit(:user_id, :platform, :share_url, :song_id)
   end
 end
 
