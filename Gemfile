@@ -21,7 +21,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-
+gem 'rack-cors'
 gem 'bcrypt'
 gem 'jwt'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
