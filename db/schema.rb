@@ -27,8 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.string "genre"
     t.string "album"
     t.string "video"
-    t.integer "playlist_id"
-    t.integer "user_id"
+<
     t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   add_foreign_key "artists", "musics", column: "music_id"
   add_foreign_key "artists", "playlists", column: "playlist_id"
