@@ -7,9 +7,7 @@ class SharesController < ApplicationController
     render json: shares
   end
 
-  
-  def show
-    render json: @share
+
   end
 
   
