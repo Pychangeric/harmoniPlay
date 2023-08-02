@@ -9,7 +9,9 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_064247) do
+
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "about"
@@ -27,8 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.string "genre"
     t.string "album"
     t.string "video"
-<
+
     t.integer "artist_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_musics_on_artist_id"
@@ -40,6 +43,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.string "title"
     t.string "description"
     t.binary "avatar"
+
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer "user_id", null: false
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +76,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.index ["user_id"], name: "index_shares_on_user_id"
   end
 
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recommendations_on_user_id"
+  end
+
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -78,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
   end
 
 
+
   add_foreign_key "artists", "musics", column: "music_id"
   add_foreign_key "artists", "playlists", column: "playlist_id"
   add_foreign_key "musics", "artists", column: "artist_id"
@@ -86,4 +101,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
   add_foreign_key "recommendations", "users", column: "user_id"
   add_foreign_key "search_histories", "users", column: "user_id"
   add_foreign_key "shares", "users", column: "user_id"
+
 end
