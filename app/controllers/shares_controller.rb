@@ -8,7 +8,7 @@ class SharesController < ApplicationController
   end
 
   # GET /shares/1 or /shares/1.json
-  def show
+  def show 
     # No additional code required for this action
   end
 
