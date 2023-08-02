@@ -1,5 +1,10 @@
+# config/routes.rb
 Rails.application.routes.draw do
+  resources :shares
+  
+  get './shares', to: 'shares#index'
   resources :playlists, only: [:create, :index, :show, :destroy]
+  resources :shares, only: [:create]
 
   post '/users/:user_id/search', to: 'search_histories#search'
   get '/users/:user_id/recommendations', to: 'recommendations#recommend'
@@ -13,6 +18,7 @@ Rails.application.routes.draw do
   post '/musics', to: 'music#create'
   get '/artist', to: 'artist#index'
   post '/artist', to: 'artist#create'
+  post '/shares', to: 'shares#create'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -20,7 +26,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 end
-
 
 
 

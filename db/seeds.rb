@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# db/seeds.rb
+
+# Create some shares
+Share.create(platform: 'Twitter', share_url: 'https://twitter.com/')
+Share.create(platform: 'Facebook', share_url: 'https://facebook.com/')
+Share.create(platform: 'WhatsApp', share_url: 'https://whatsapp.com/')
+
 
 music = Music.create(
   title: "yatapita",
