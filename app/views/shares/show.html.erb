@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @share %>
+
+<div>
+  <%= link_to "Edit this share", edit_share_path(@share) %> |
+  <%= link_to "Back to shares", shares_path %>
+
+  <%= button_to "Destroy this share", @share, method: :delete %>
+</div>
