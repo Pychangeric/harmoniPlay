@@ -109,7 +109,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-
+    jsonapi-renderer (0.2.2)
+    jwt (2.7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -224,11 +225,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-
   active_model_serializers
-
   bcrypt
-
   bootsnap
   capybara
   debug
@@ -245,7 +243,6 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
-
 
 BUNDLED WITH
    2.4.14
