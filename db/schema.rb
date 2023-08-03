@@ -16,6 +16,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064247) do
     t.string "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "about"
+    t.integer "music_id"
+    t.integer "playlists_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["music_id"], name: "index_artists_on_music_id"
+    t.index ["playlists_id"], name: "index_artists_on_playlists_id"
   end
 
   create_table "musics", force: :cascade do |t|
@@ -24,8 +37,60 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064247) do
     t.string "genre"
     t.string "album"
     t.string "video"
+ 
+    t.integer "playlists_id"
+    t.integer "users_id"
+    t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_musics_on_artist_id"
+    t.index ["playlists_id"], name: "index_musics_on_playlists_id"
+    t.index ["users_id"], name: "index_musics_on_users_id"
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recommendations_on_user_id"
+  end
+
+  create_table "search_histories", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "query"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_search_histories_on_user_id"
+  end
+
+  create_table "shares", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "platform"
+    t.string "share_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shares_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+    t.string "authentication_token"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token"
+
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -63,4 +128,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_064247) do
 
   add_foreign_key "recommendations", "users"
   add_foreign_key "search_histories", "users"
+  add_foreign_key "artists", "musics"
+  add_foreign_key "artists", "playlists", column: "playlists_id"
+  add_foreign_key "musics", "artists"
+  add_foreign_key "musics", "playlists", column: "playlists_id"
+  add_foreign_key "musics", "users", column: "users_id"
+  add_foreign_key "recommendations", "users"
+  add_foreign_key "search_histories", "users"
+  add_foreign_key "shares", "users"
 end

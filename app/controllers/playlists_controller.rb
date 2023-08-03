@@ -1,5 +1,4 @@
 class PlaylistsController < ApplicationController
-    skip_before_action :verify_authenticity_token
     def index 
         playlist= Playlist.all
         render json: playlist
@@ -13,9 +12,17 @@ class PlaylistsController < ApplicationController
         end
     end
     def create 
-        playlist=Playlist.create(playlist_params)
-        render json: playlist
+      playlist = Playlist.create(playlist_params)
+    
+      if playlist.persisted?
+        render json: playlist, status: :created
+      else
+        puts playlist.errors.full_messages 
+        render json: { error: playlist.errors.full_messages.join(", ") }, status: :unprocessable_entity
+      end
     end 
+    
+    
     def destroy
         playlist = Playlist.find_by(title: params[:title])
       
@@ -30,6 +37,6 @@ class PlaylistsController < ApplicationController
       
     private
      def playlist_params
-        params.permit(:title, :description, :avatar)
-     end
+      params.permit(:title, :description, :avatar)
+    end
 end
