@@ -24,6 +24,9 @@ gem "stimulus-rails"
 gem 'rack-cors'
 gem 'bcrypt'
 gem 'jwt'
+gem 'rack-cors'
+
+
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
