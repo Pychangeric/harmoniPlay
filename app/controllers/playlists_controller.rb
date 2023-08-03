@@ -37,6 +37,6 @@ class PlaylistsController < ApplicationController
       
     private
      def playlist_params
-        params.permit(:title, :description, :avatar)
-     end
+      params.permit(:title, :description, :avatar)
+    end
 end

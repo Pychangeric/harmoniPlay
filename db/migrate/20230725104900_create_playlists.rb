@@ -3,7 +3,6 @@ class CreatePlaylists < ActiveRecord::Migration[7.0]
     create_table :playlists do |t|
       t.string :title
       t.string :description
-      t.binary :avatar
 
       t.timestamps
     end
