@@ -9,15 +9,17 @@
 # db/seeds.rb
 
 # Create some shares
-Share.create(platform: 'Twitter', share_url: 'https://twitter.com/')
-Share.create(platform: 'Facebook', share_url: 'https://facebook.com/')
-Share.create(platform: 'WhatsApp', share_url: 'https://whatsapp.com/')
 
 
-music = Music.create(
-  title: "yatapita",
-  avatar: "https://9flavour.com/wp-content/uploads/2023/04/Diamond-Platnumz-Yatapita-OFC.jpg",
-  genre: "Bongo",
-  album: "Diamond platnumz",
-  video: "https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbmFKTkJVd0ZDZGc4ZlY2SGtsVV9CZnRoVzBjQXxBQ3Jtc0traXR0RnZ2cTRjWThfeFhRTDJsRjRlTzdMRUM5T1FmTWNtMVZONE91dzctTWl5YUMyRFdHRHpKUXNCTVZsaHFFLXhlQmxEX3JsMzV4OWhDWmlLTHdIMlJYNDRrZ2c3aXp3Q3lNSy1KeDJBVUxlT0hUbw&q=https%3A%2F%2Fdplatnumz.lnk.to%2Fyatapita&v=U6JBZNAkp24"
-)
+genres = ['Bongo', 'Dancehall', 'Hip-Hop', 'Jazz', 'Classical', 'Gospel', 'Country', 'R&B', 'Reggae', 'Riddims']
+
+# Seed200 musics
+200.times do
+  Music.create!(
+    title: Faker::Music::Prince.song,
+    avatar: Faker::LoremFlickr.image(size: "300x300", search_terms: ['music']),
+    genre: genres.sample,
+    album: Faker::Music.band,
+    video: "https://www.youtube.com/watch?v=#{Faker::Alphanumeric.alpha(number: 11)}"
+  )
+end
