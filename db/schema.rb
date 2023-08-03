@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
+
+
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
+
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "about"
@@ -41,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "description"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,6 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_165316) do
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.string "authentication_token"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token"
+
   end
 
   add_foreign_key "artists", "musics"
