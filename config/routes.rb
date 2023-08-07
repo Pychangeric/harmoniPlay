@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  get '/me/:id', to: 'sessions#show'
   get '/musics', to: 'music#index'
   post '/musics', to: 'music#create'
   get '/artist', to: 'artist#index'
