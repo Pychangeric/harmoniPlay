@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users
   resources :music, only: [:index, :show, :create]
   resources :artists
+  get '/users/:id', to: 'users#show'
   post 'signup', to: 'users#create'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
