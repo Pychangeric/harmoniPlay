@@ -17,4 +17,11 @@ class SessionsController < ApplicationController
       end
       head :no_content
     end
+    def show
+     if user = User.find(params[:id])
+     render json: user
+     else
+      render json:{error: "User not found"},status: :unprocessable_entity 
+    end
+  end
   end
