@@ -9,7 +9,6 @@ class MusicController < ApplicationController
   def show
     render json: @music
   end
-
   def create
     music = Music.new(music_params)
     if music.save
