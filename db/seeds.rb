@@ -22,4 +22,6 @@ genres = ['Bongo', 'Dancehall', 'Hip-Hop', 'Jazz', 'Classical', 'Gospel', 'Count
     album: Faker::Music.band,
     video: "https://www.youtube.com/watch?v=#{Faker::Alphanumeric.alpha(number: 11)}"
   )
+
+  
 end
