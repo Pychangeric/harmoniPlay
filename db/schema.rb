@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
     t.index ["authentication_token"], name: "index_users_on_authentication_token"
   end
 
+
   add_foreign_key "recommendations", "users"
   add_foreign_key "search_histories", "users"
   add_foreign_key "shares", "users"
