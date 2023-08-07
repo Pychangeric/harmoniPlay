@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get '/artist', to: 'artist#index'
   post '/artist', to: 'artist#create'
   post '/shares', to: 'shares#create'
+  delete '/playlists/:id', to: 'playlists#destroy'
+  get '/musics/:id', to: 'music#show'
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
