@@ -96,10 +96,8 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     erubi (1.12.0)
-    faraday (2.7.10)
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (3.0.2)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -185,7 +183,6 @@ GEM
     reline (0.3.6)
       io-console (~> 0.5)
     rexml (3.2.5)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -208,10 +205,6 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
-    twilio-ruby (5.77.0)
-      faraday (>= 0.9, < 3.0)
-      jwt (>= 1.5, < 3.0)
-      nokogiri (>= 1.6, < 2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     web-console (4.2.0)
@@ -230,15 +223,18 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.9)
+
 PLATFORMS
   x86_64-darwin-21
   x86_64-linux
+
 DEPENDENCIES
   active_model_serializers
   bcrypt
   bootsnap
   capybara
   debug
+  faker
   importmap-rails
   jbuilder
   jwt
@@ -250,16 +246,9 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
-  twilio-ruby (~> 5.0)
   tzinfo-data
   web-console
   webdrivers
+
 BUNDLED WITH
    2.4.13
-
-
-
-
-
-
-
