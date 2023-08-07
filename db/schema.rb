@@ -14,8 +14,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "about"
+    t.integer "music_id"
+    t.integer "playlists_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["music_id"], name: "index_artists_on_music_id"
+    t.index ["playlists_id"], name: "index_artists_on_playlists_id"
   end
 
   create_table "musics", force: :cascade do |t|
@@ -34,16 +38,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
     t.index ["user_id"], name: "index_musics_on_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_musics_on_artist_id"
+    t.index ["playlists_id"], name: "index_musics_on_playlists_id"
+    t.index ["users_id"], name: "index_musics_on_users_id"
   end
 
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "description"
 
-    t.binary "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
   end
 
   create_table "playlists_musics", id: false, force: :cascade do |t|
@@ -89,12 +94,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
   end
 
 
+
   add_foreign_key "artists", "musics"
   add_foreign_key "artists", "playlists", column: "playlists_id"
   add_foreign_key "musics", "artists"
   add_foreign_key "musics", "playlists"
   add_foreign_key "musics", "users"
-
   add_foreign_key "recommendations", "users"
   add_foreign_key "search_histories", "users"
   add_foreign_key "shares", "users"

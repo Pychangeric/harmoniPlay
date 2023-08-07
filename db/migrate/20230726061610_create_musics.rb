@@ -9,8 +9,8 @@ class CreateMusics < ActiveRecord::Migration[7.0]
       
 
 
-      t.references :playlists, foreign_key: true
-      t.references :users, foreign_key: true
+      t.references :playlist, foreign_key: true
+      t.references :user, foreign_key: true
       t.references :artist, foreign_key: true
       
 

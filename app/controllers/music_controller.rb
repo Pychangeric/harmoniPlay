@@ -6,9 +6,16 @@ class MusicController < ApplicationController
     render json: musics
   end
 
-  def show
-    render json: @music
-  end
+
+  def show 
+    playlist = Music.find_by(id:params[:id])
+    if playlist
+        render json: playlist
+    else 
+        render json: {error:"playlist not found"}
+    end
+end
+
   def create
     music = Music.new(music_params)
     if music.save
