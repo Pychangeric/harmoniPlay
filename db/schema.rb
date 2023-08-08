@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_122643) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "about"
@@ -36,17 +36,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
     t.index ["artist_id"], name: "index_musics_on_artist_id"
     t.index ["playlist_id"], name: "index_musics_on_playlist_id"
     t.index ["user_id"], name: "index_musics_on_user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_musics_on_artist_id"
-    t.index ["playlists_id"], name: "index_musics_on_playlists_id"
-    t.index ["users_id"], name: "index_musics_on_users_id"
   end
 
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "description"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,8 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_073600) do
     t.string "authentication_token"
     t.index ["authentication_token"], name: "index_users_on_authentication_token"
   end
-
-
 
   add_foreign_key "artists", "musics"
   add_foreign_key "artists", "playlists", column: "playlists_id"
