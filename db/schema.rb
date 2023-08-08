@@ -34,6 +34,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_122643) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_musics_on_artist_id"
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd10d4b31d89f6f2f94cbd5b5f62313f14ab9cac
+    t.index ["playlist_id"], name: "index_musics_on_playlist_id"
+    t.index ["user_id"], name: "index_musics_on_user_id"
     t.index ["playlists_id"], name: "index_musics_on_playlists_id"
     t.index ["users_id"], name: "index_musics_on_users_id"
   end
