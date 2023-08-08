@@ -2,8 +2,16 @@ class MusicController < ApplicationController
   before_action :set_music, only: [:show]
 
   def index
-    musics = Music.all
-    render json: musics
+    if params[:search]
+      if params[:search].to_i.to_s == params[:search] 
+        music = Music.find_by(id: params[:search])
+      else
+        music = Music.where('title ILIKE ?', "%#{params[:search]}%")
+      end
+    else
+      music = Music.all
+    end
+    render json: music
   end
 
 

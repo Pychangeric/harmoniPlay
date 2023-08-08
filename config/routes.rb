@@ -17,14 +17,20 @@ Rails.application.routes.draw do
   resources :users
   resources :music, only: [:index, :show, :create]
   resources :artists
+  get '/users/:id', to: 'users#show'
   post 'signup', to: 'users#create'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  get '/me/:id', to: 'sessions#show'
   get '/musics', to: 'music#index'
   post '/musics', to: 'music#create'
   get '/artist', to: 'artist#index'
   post '/artist', to: 'artist#create'
   post '/shares', to: 'shares#create'
+  delete '/playlists/:id', to: 'playlists#destroy'
+  get '/musics/:id', to: 'music#show'
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

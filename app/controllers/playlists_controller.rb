@@ -51,8 +51,8 @@ class PlaylistsController < ApplicationController
   end 
     
   def destroy
-    playlist = Playlist.find_by(title: params[:title])
-      
+    playlist = Playlist.find_by(id: params[:id]) # Find by ID instead of title
+    
     if playlist
       playlist.destroy
       render json: { message: 'Playlist deleted successfully' }, status: :ok
